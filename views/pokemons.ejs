@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokémons</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Pokémons</h1>
+  <a href="/">⬅ Back to Home</a>
+  <a href="/pokemons/add">Add Pokémon</a>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Level</th>
+      <th>Type</th>
+      <th>Trainer</th>
+      <th>Action</th>
+    </tr>
+    <% pokemons.forEach(p => { %>
+      <tr>
+        <td><%= p.pokemon_id %></td>
+        <td><%= p.name %></td>
+        <td><%= p.level %></td>
+        <td><%= p.type %></td>
+        <td><%= p.trainer %></td>
+        <td>
+          <form action="/pokemons/delete/<%= p.pokemon_id %>" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
